@@ -39,6 +39,7 @@ public class IOConsole {
      * @param args : optional arguments to send for string formatting
      */
     public void println(String val, Object... args) {
+        out.format(val + "\n", args);
     }
 
     /**
@@ -47,7 +48,8 @@ public class IOConsole {
      * @return user's input as String
      */
     public String getStringInput(String prompt, Object... args) {
-        return null;
+        println(prompt, args);
+        return scanner.nextLine();
     }
 
     /**
@@ -56,7 +58,13 @@ public class IOConsole {
      * @return user's input as integer
      */
     public Integer getIntegerInput(String prompt, Object... args) {
-        return null;
+        println(prompt, args);
+        int result = scanner.nextInt();
+        scanner.nextLine();
+        /* this extra scanner.nextLine() method is included to eat the
+        remaining \n character left by the scanner method above it. Without
+        this, any following scanner.nextLine() methods will skip. */
+        return result;
     }
 
     /**
@@ -65,7 +73,13 @@ public class IOConsole {
      * @return user's input as double
      */
     public Double getDoubleInput(String prompt, Object... args) {
-        return null;
+        println(prompt, args);
+        double result = scanner.nextDouble();
+        scanner.nextLine();
+        /* this extra scanner.nextLine() method is included to eat the
+        remaining \n character left by the scanner method above it. Without
+        this, any following scanner.nextLine() methods will skip. */
+        return result;
     }
 
     /**
@@ -74,7 +88,13 @@ public class IOConsole {
      * @return user's input as float
      */
     public Float getFloatInput(String prompt, Object... args) {
-        return null;
+        println(prompt, args);
+        float result = scanner.nextFloat();
+        scanner.nextLine();
+        /* this extra scanner.nextLine() method is included to eat the
+        remaining \n character left by the scanner method above it. Without
+        this, any following scanner.nextLine() methods will skip. */
+        return result;
     }
 
     /**
@@ -83,6 +103,12 @@ public class IOConsole {
      * @return user's input as long
      */
     public Long getLongInput(String prompt, Object... args) {
-        return null;
+        println(prompt, args);
+        long result = scanner.nextLong();
+        scanner.nextLine();
+        /* this extra scanner.nextLine() method is included to eat the
+        remaining \n character left by the scanner method above it. Without
+        this, any following scanner.nextLine() methods will skip. */
+        return result;
     }
 }
